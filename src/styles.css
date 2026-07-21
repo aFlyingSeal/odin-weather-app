@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+}
+
+.main-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+#city-input{
+    border-radius: 8px;
+    padding: 4px;
+    font-size: inherit;
+}
+
+#submit-btn{
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.display-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+}
+
+.weather-container{
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.forecast-container{
+    background-color: #f0f8ff;
+    border-radius: 16px;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.cards-container{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.info-card{
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-emoji{
+    font-size: 24px;
+}
