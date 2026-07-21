@@ -4,6 +4,8 @@ const feelsDisplay = document.querySelector('.display-feels');
 const windDisplay = document.querySelector('.display-wind');
 const humidDisplay = document.querySelector('.display-humid');
 
+const cityInput = document.getElementById("city-input");
+const submitButton = document.getElementById("submit-btn");
 
 const API_KEY = "a6c2bb6c9e3785b4427daa587075b701";
 
@@ -34,4 +36,7 @@ function updateDisplay(data){
     humidDisplay.textContent = `Humidity: ${humid}`
 }
 
-getWeatherData("Nha Trang").then(updateDisplay);    
+submitButton.addEventListener("click", () => {
+    const cityName = cityInput.value;
+    getWeatherData(cityName).then(updateDisplay);
+});
