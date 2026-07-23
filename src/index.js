@@ -11,6 +11,9 @@ mainContainer.appendChild(inputContainer);
 mainContainer.appendChild(createDisplayContainer());
 
 submitBtn.addEventListener("click", () => {
+    const displayContainer = mainContainer.querySelector('.display-container');
+    displayContainer.style.visibility = 'visible';
+
     const forecastContainer = mainContainer.querySelector('.forecast-container');
     forecastContainer.innerHTML = ``;
 
