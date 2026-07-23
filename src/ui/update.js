@@ -47,8 +47,8 @@ function updateForecastDisplay(data){
         const card = document.createElement('div');
         card.innerHTML = `
             <p class="display-emoji">${getWeatherEmoji(day.weather[0])}</p>
-            <p>🌡️ ${temp}</p>
-            <p>💨 ${wind}</p>
+            <p>🌡️ ${temp.toFixed(2)}</p>
+            <p>💨 ${wind.toFixed(2)}</p>
             <p>${desc}</p>
         `;
         card.classList.add('info-card');
