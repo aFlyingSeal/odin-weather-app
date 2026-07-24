@@ -8,6 +8,7 @@ function createInputContainer(){
     const cityInput = document.createElement('input');
     cityInput.type = 'text';
     cityInput.id = 'city-input';
+    cityInput.name = 'cityName';
 
     const submitBtn = document.createElement('button');
     submitBtn.id = 'submit-btn';
@@ -25,8 +26,6 @@ function createInputContainer(){
 
     return {
         inputContainer,
-        cityInput,
-        submitBtn,
         inputForm
     };
 }

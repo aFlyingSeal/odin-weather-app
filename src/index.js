@@ -4,7 +4,7 @@ import { getWeatherData, getForecastData } from './api/weather';
 import { createInputContainer, createDisplayContainer } from './ui/display';
 import { updateWeatherDisplay, updateForecastDisplay } from './ui/update';
 
-const { inputContainer, cityInput, submitBtn, inputForm } = createInputContainer();
+const { inputContainer, inputForm } = createInputContainer();
 
 const mainContainer = document.querySelector('.main-container');
 mainContainer.appendChild(inputContainer);
@@ -19,7 +19,7 @@ inputForm.addEventListener("submit", (e) => {
     const forecastContainer = mainContainer.querySelector('.forecast-container');
     forecastContainer.innerHTML = ``;
 
-    const cityName = cityInput.value;
+    const cityName = inputForm.cityName.value;
 
     getWeatherData(cityName).then(updateWeatherDisplay);
     getForecastData(cityName).then(updateForecastDisplay);
