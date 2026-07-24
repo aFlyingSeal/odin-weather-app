@@ -2,6 +2,9 @@ function createInputContainer(){
     const inputContainer = document.createElement('div');
     inputContainer.classList.add('input-container');
 
+    const inputForm = document.createElement('form');
+    inputForm.id = 'input-form';
+
     const cityInput = document.createElement('input');
     cityInput.type = 'text';
     cityInput.id = 'city-input';
@@ -10,8 +13,15 @@ function createInputContainer(){
     submitBtn.id = 'submit-btn';
     submitBtn.textContent = 'Enter';
 
-    inputContainer.appendChild(cityInput);
-    inputContainer.appendChild(submitBtn);
+    inputForm.appendChild(cityInput);
+    inputForm.appendChild(submitBtn);
+
+    const tempSwitchBtn = document.createElement('button');
+    tempSwitchBtn.id = 'temp-switch-btn';
+    tempSwitchBtn.textContent = 'Fahrenheit';
+
+    inputContainer.appendChild(inputForm);
+    inputContainer.appendChild(tempSwitchBtn);
 
     return {
         inputContainer,
