@@ -26,7 +26,8 @@ function createInputContainer(){
 
     return {
         inputContainer,
-        inputForm
+        inputForm,
+        tempSwitchBtn
     };
 }
 
