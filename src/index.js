@@ -3,11 +3,16 @@ import './styles.css';
 import { getWeatherData, getForecastData } from './api/weather';
 import { createInputContainer, createDisplayContainer } from './ui/display';
 import { updateWeatherDisplay, updateForecastDisplay } from './ui/update';
+import createLoadingElement from './ui/loading';
 
 const { inputContainer, inputForm, tempSwitchBtn } = createInputContainer();
 
+const loadingElement = createLoadingElement();
+loadingElement.style.display = 'none';
+
 const mainContainer = document.querySelector('.main-container');
 mainContainer.appendChild(inputContainer);
+mainContainer.appendChild(loadingElement);
 mainContainer.appendChild(createDisplayContainer());
 
 let isCelsius = false;
@@ -18,21 +23,31 @@ inputForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const displayContainer = mainContainer.querySelector('.display-container');
-    displayContainer.style.visibility = 'visible';
+    displayContainer.style.visibility = 'hidden';
 
     const forecastContainer = mainContainer.querySelector('.forecast-container');
     forecastContainer.innerHTML = ``;
 
     const cityName = inputForm.cityName.value;
 
-    getWeatherData(cityName).then(data => {
-        lastWeatherData = data;
-        updateWeatherDisplay(data, isCelsius);
-    });
-    getForecastData(cityName).then(data => {
-        lastForecastData = data;
-        updateForecastDisplay(data, isCelsius);
-    });
+    loadingElement.style.display = 'block';
+
+    Promise
+        .all([getWeatherData(cityName), getForecastData(cityName)])
+        .then(([weatherData, forecastData]) => {
+            lastWeatherData = weatherData;
+            lastForecastData = forecastData;
+            updateWeatherDisplay(weatherData, isCelsius);
+            updateForecastDisplay(forecastData, isCelsius);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            loadingElement.style.display = 'none';
+            displayContainer.style.visibility = 'visible';
+        });
+
 });
 
 tempSwitchBtn.addEventListener("click", () => {
