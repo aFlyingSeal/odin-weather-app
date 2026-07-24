@@ -4,13 +4,15 @@ import { getWeatherData, getForecastData } from './api/weather';
 import { createInputContainer, createDisplayContainer } from './ui/display';
 import { updateWeatherDisplay, updateForecastDisplay } from './ui/update';
 
-const { inputContainer, cityInput, submitBtn } = createInputContainer();
+const { inputContainer, cityInput, submitBtn, inputForm } = createInputContainer();
 
 const mainContainer = document.querySelector('.main-container');
 mainContainer.appendChild(inputContainer);
 mainContainer.appendChild(createDisplayContainer());
 
-submitBtn.addEventListener("click", () => {
+inputForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
     const displayContainer = mainContainer.querySelector('.display-container');
     displayContainer.style.visibility = 'visible';
 

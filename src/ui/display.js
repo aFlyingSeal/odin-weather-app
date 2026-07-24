@@ -26,7 +26,8 @@ function createInputContainer(){
     return {
         inputContainer,
         cityInput,
-        submitBtn
+        submitBtn,
+        inputForm
     };
 }
 
