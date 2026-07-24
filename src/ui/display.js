@@ -7,6 +7,7 @@ function createInputContainer(){
 
     const cityInput = document.createElement('input');
     cityInput.type = 'text';
+    cityInput.required = true;
     cityInput.id = 'city-input';
     cityInput.name = 'cityName';
 
