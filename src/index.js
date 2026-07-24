@@ -21,6 +21,7 @@ let lastWeatherData, lastForecastData;
 
 inputForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    inputForm.checkValidity();
 
     const displayContainer = mainContainer.querySelector('.display-container');
     displayContainer.style.visibility = 'hidden';
@@ -64,6 +65,11 @@ tempSwitchBtn.addEventListener("click", () => {
     const forecastContainer = mainContainer.querySelector('.forecast-container');
     forecastContainer.innerHTML = ``;
 
-    updateWeatherDisplay(lastWeatherData, isCelsius);
-    updateForecastDisplay(lastForecastData, isCelsius);
+    try{
+        updateWeatherDisplay(lastWeatherData, isCelsius);
+        updateForecastDisplay(lastForecastData, isCelsius);
+    }
+    catch(error){
+        console.log(error);
+    }
 });
