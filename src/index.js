@@ -30,7 +30,7 @@ inputForm.addEventListener("submit", (e) => {
 
     const cityName = inputForm.cityName.value;
 
-    loadingElement.style.display = 'block';
+    loadingElement.style.display = 'flex';
 
     Promise
         .all([getWeatherData(cityName), getForecastData(cityName)])
